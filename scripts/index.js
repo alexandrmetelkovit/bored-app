@@ -1,26 +1,6 @@
-// //делаем запрос(request)на сервер
-// fetch('https://dog.ceo/api/breeds/image/random')
-// //приходят данные с сервера
-// //получаем JSON
-// 		.then(data => data.json())
-// 		//результат из бэкенда (объект)
-// 		//Трансформирует в объект 'res'
-// 		.then((res) => {
-// 			//проверка статуса
-// 			if (res.status !== 'success') {
-// 				return;
-// 			}
-
-// 			document.getElementById('imgDog').innerHTML = `
-// 			<img 
-// 					src = '${res.message}'
-// 					width = '300'>;
-// 			`;
-// 		});
-
-const INTRO_QUESTION_TEXT = '🤔 Стало скучно?';
-const INTRO_ANSWER_TEXT = 'Найти, чем заняться';
-const CHANGE_QUESTION_TEXT = 'Ура, теперь не скучно 🔥';
+const INTRO_QUESTION_TEXT = '🤔 Getting bored?';
+const INTRO_ANSWER_TEXT = 'Find something to do';
+const CHANGE_QUESTION_TEXT = 'Congratulations, now you have something to do 🔥';
 const ACTIVE_PAGE = 'active';
 
 const boredStatusNode = document.getElementById('boredStatus');
@@ -40,8 +20,23 @@ const changeIntroTextAndBackground = () => {
 	document.body.classList.add(ACTIVE_PAGE);
 }
 
+const apiGenerationText = () => {
+fetch('http://www.boredapi.com/api/activity/')
+.then((response) => {
+	if (response.ok) {
+		return response.json();
+	}
+})
+.then((response) => {
+
+	const inProcess = response.activity;
+	boredAnswerNode.innerText = inProcess;
+}
+	)}
+
 const activatePageHandler = () => {
 	changeIntroTextAndBackground();
+	apiGenerationText()
 }
 
 boredBtnNode.addEventListener('click', 
