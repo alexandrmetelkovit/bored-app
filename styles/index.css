@@ -65,3 +65,32 @@ html {
 	border-radius: 15px;
 	background: green;
 }
+
+@media (max-width: 767px) {
+	.container {
+		min-width: 300px;
+		padding: 0 13px;
+	}
+
+	.bored__wrapper {
+		gap: 40px;
+	}
+
+	.bored__status,
+	.bored__answer {
+		color: #000;
+		font-size: 25px;
+	}
+
+	.bored__btn {
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		line-height: 30px;
+	}
+
+	.bored__btn:hover {
+		opacity: 0.7;
+		background: green;
+	}
+}

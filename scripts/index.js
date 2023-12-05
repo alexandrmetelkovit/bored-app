@@ -21,7 +21,7 @@ const changeIntroTextAndBackground = () => {
 }
 
 const apiGenerationText = () => {
-fetch('http://www.boredapi.com/api/activity/')
+fetch('https://www.boredapi.com/api/activity/')
 .then((response) => {
 	if (response.ok) {
 		return response.json();
@@ -36,7 +36,7 @@ fetch('http://www.boredapi.com/api/activity/')
 
 const activatePageHandler = () => {
 	changeIntroTextAndBackground();
-	apiGenerationText()
+	apiGenerationText();
 }
 
 boredBtnNode.addEventListener('click', 
