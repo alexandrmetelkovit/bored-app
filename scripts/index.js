@@ -29,8 +29,7 @@ fetch('https://www.boredapi.com/api/activity/')
 })
 .then((response) => {
 
-	const inProcess = response.activity;
-	boredAnswerNode.innerText = inProcess;
+	boredAnswerNode.innerText = response.activity;
 }
 	)}
 
